@@ -1,4 +1,9 @@
-import { createFromSource } from 'fumadocs-core/search/server';
 import { source } from '@/lib/source';
+import { createFromSource } from 'fumadocs-core/search/server';
 
-export const { GET } = createFromSource(source);
+export const { staticGET: GET } = createFromSource(source);
+
+// statically cached
+export const getConfig = async () => ({
+  render: 'static',
+});

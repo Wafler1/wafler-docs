@@ -5,6 +5,7 @@
     "": {
       "name": "wafler-docs",
       "dependencies": {
+        "@orama/orama": "^3.1.18",
         "@radix-ui/react-popover": "^1.1.15",
         "class-variance-authority": "^0.7.1",
         "fumadocs-core": "16.5.4",
