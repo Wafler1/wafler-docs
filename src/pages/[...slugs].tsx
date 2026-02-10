@@ -2,8 +2,12 @@ import { source } from '@/lib/source';
 import { PageProps } from 'waku/router';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import { DocsBody, DocsDescription, DocsPage, DocsTitle } from 'fumadocs-ui/layouts/docs/page';
+import { LLMCopyButton, ViewOptions } from '@/components/page-actions';
+import { baseOptions } from '@/lib/layout.shared';
 
-export default function DocPage({ slugs }: PageProps<'/docs/[...slugs]'>) {
+const githubRepoUrl = baseOptions().githubUrl?.replace(/\.git$/, '').replace(/\/$/, '');
+
+export default function DocPage({ slugs }: PageProps<'/[...slugs]'>) {
   const page = source.getPage(slugs);
 
   if (!page) {
@@ -18,10 +22,18 @@ export default function DocPage({ slugs }: PageProps<'/docs/[...slugs]'>) {
   }
 
   const MDX = page.data.body;
+  const markdownUrl = `${page.url}.mdx`;
+  const githubFileUrl = githubRepoUrl
+    ? `${githubRepoUrl}/blob/main/content/docs/${page.path}`
+    : 'https://github.com/Wafler1/wafler-docs';
+
   return (
     <DocsPage toc={page.data.toc}>
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
+      <div className="flex flex-row flex-wrap gap-2 items-center border-b pt-2 pb-6">
+        <ViewOptions markdownUrl={markdownUrl} githubUrl={githubFileUrl} />
+      </div>
       <DocsBody>
         <MDX
           components={{
@@ -34,12 +46,7 @@ export default function DocPage({ slugs }: PageProps<'/docs/[...slugs]'>) {
 }
 
 export async function getConfig() {
-  const pages = source
-    .generateParams()
-    .map((item) => (item.lang ? [item.lang, ...item.slug] : item.slug));
-
   return {
-    render: 'static' as const,
-    staticPaths: pages,
+    render: 'dynamic' as const,
   } as const;
 }
