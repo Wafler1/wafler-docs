@@ -1,0 +1,16 @@
+{
+  "title": "Product Docs",
+  "icon": "BookOpen",
+  "description": "Guides and information.",
+  "root": true,
+  "pages": [
+    "---Introduction---",
+    "index",
+    "quickstart",
+    "faq",
+    "---Dashboard---",
+    "dashboard",
+    "---Enterprise---",
+    "enterprise"
+  ]
+}

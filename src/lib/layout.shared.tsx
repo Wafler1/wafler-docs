@@ -1,23 +1,21 @@
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
-import { Database, House } from 'lucide-react';
 
 export function baseOptions(): BaseLayoutProps {
   return {
     nav: {
-      title: 'Wafler Docs',
+      title: (
+        <span className="inline-flex items-center gap-2">
+          <img
+            src="https://wafler.one/images/logo.png"
+            alt="Wafler logo"
+            width={20}
+            height={20}
+            className="rounded-sm"
+          />
+          <span>Wafler Documentation</span>
+        </span>
+      ),
     },
-    links: [
-      {
-        icon: <House />,
-        text: 'Main Site',
-        url: 'https://wafler.one',
-      },
-      {
-        icon: <Database />,
-        text: 'Dashboard',
-        url: 'https://dash.wafler.one',
-      }
-    ],
     githubUrl: "https://github.com/Wafler1/wafler-docs"
   };
 }

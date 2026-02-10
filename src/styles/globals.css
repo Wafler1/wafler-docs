@@ -2,6 +2,32 @@
 @import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
 
+:root {
+  --color-fd-primary: #fc970a;
+  --color-fd-primary-foreground: #2b1900;
+  --color-fd-ring: #fc970a;
+  --color-fd-accent: hsl(35 100% 94%);
+  --color-fd-accent-foreground: hsl(30 60% 20%);
+  --color-fd-secondary: hsl(35 45% 92%);
+  --color-fd-secondary-foreground: hsl(30 60% 20%);
+  --color-fd-border: hsla(0, 0%, 80%, 50%);
+  --color-fd-muted: hsl(36 36% 94%);
+  --color-fd-muted-foreground: hsl(28 20% 36%);
+}
+
+.dark {
+  --color-fd-primary: #fc970a;
+  --color-fd-primary-foreground: #2b1900;
+  --color-fd-ring: #fc970a;
+  --color-fd-accent: hsl(30 28% 18%);
+  --color-fd-accent-foreground: hsl(35 95% 76%);
+  --color-fd-secondary: hsl(30 16% 15%);
+  --color-fd-secondary-foreground: hsl(35 30% 88%);
+  --color-fd-border: hsla(0, 0%, 40%, 20%);
+  --color-fd-muted: hsl(30 10% 14%);
+  --color-fd-muted-foreground: hsl(35 20% 70%);
+}
+
 body {
   display: flex;
   flex-direction: column;

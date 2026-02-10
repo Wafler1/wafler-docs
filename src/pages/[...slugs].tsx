@@ -32,6 +32,7 @@ export default function DocPage({ slugs }: PageProps<'/[...slugs]'>) {
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
       <div className="flex flex-row flex-wrap gap-2 items-center border-b pt-2 pb-6">
+        <LLMCopyButton markdownUrl={markdownUrl} />
         <ViewOptions markdownUrl={markdownUrl} githubUrl={githubFileUrl} />
       </div>
       <DocsBody>

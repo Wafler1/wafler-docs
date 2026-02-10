@@ -1,0 +1,9 @@
+{
+  "title": "API Docs",
+  "icon": "Code",
+  "description": "Documentation for the API.",
+  "root": true,
+  "pages": [
+    "index"
+  ]
+}
